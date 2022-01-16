@@ -1,8 +1,7 @@
 clean:
 	./gradlew clean
 
-build:
-	./gradlew clean build
+build: ./gradlew clean build
 
 install:
 	./gradlew clean install
@@ -13,4 +12,8 @@ run-dist:
 run:
 	./gradlew run
 
-check-updates: ./gradlew useLatestVersions
+lint:
+	./gradlew checkstyleMain
+
+check-updates:
+	./gradlew useLatestVersions
