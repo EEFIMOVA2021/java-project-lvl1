@@ -4,3 +4,5 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
 
 ![example workflow](https://github.com/EEFIMOVA2021/java-project-lvl1/.github/workflows/main.yml/badge.svg)
+
+https://asciinema.org/a/uQ7E27yuQa0B4g8ztQq6yH49a
