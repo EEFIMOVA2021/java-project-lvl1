@@ -6,8 +6,8 @@ public class Even {
         return startText;
     }
     public static String[] playGame() {
-        int number = 0;
         final int countRandom = 100;
+        int number = 0;
         String trueAnswer = "";
         String[] result = new String[2];
 

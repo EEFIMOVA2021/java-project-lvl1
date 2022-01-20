@@ -7,27 +7,25 @@ public class Engine {
         final int gameGreetNum = 1;
         final int gameEvenNum = 2;
         final int gameCalcNum = 3;
-        int number = 0;
+        final int gameGCDNum = 4;
         final int countRaund = 3;
-        final int countRandom = 100;
         String playeerName = "";
         String playeerAnswer = "";
         String result = "success";
         String[] gameIter = new String[2];
         Scanner engineScanner = new Scanner(System.in);
 
+        playeerName = Cli.welcomePlayeer();
         if (choiseNumber > gameExitNum) {
             switch (choiseNumber) {
-                case gameGreetNum:
-                    playeerName = Cli.welcomePlayeer();
-                    break;
                 case gameEvenNum:
-                    playeerName = Cli.welcomePlayeer();
                     System.out.println(Even.getStartText());
                     break;
                 case gameCalcNum:
-                    playeerName = Cli.welcomePlayeer();
                     System.out.println(Calc.getStartText());
+                    break;
+                case gameGCDNum:
+                    System.out.println(GCD.getStartText());
                     break;
                 default:
                     break;
@@ -40,6 +38,9 @@ public class Engine {
                             break;
                         case gameCalcNum:
                             gameIter = Calc.playGame();
+                            break;
+                        case gameGCDNum:
+                            gameIter = GCD.playGame();
                             break;
                         default:
                             break;

@@ -9,12 +9,12 @@ public class Calc {
         final int createOper1 = 25;
         final int createOper2 = 50;
         final int createOper3 = 75;
+        final int countRandom = 100;
         int number1 = 0;
         int number2 = 0;
         int numberForOper = 0;
-        char oper = '+';
-        final int countRandom = 100;
         int trueAnswer = 0;
+        char oper = '+';
         String[] result = new String[2];
 
         number1 = (int) (Math.random() * countRandom);
