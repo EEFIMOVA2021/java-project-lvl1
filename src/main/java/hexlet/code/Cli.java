@@ -10,4 +10,11 @@ public class Cli {
         System.out.println("Hello, " + playeerName + "!");
         return playeerName;
     }
+    public static void getGameResult(String result, String playeerName) {
+        if (result.equals("success")) {
+            System.out.println("Congratulations, " + playeerName + "!");
+        } else {
+            System.out.println("Let's try again, " + playeerName + "!");
+        }
+    }
 }

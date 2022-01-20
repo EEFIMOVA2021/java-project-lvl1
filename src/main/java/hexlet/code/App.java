@@ -3,19 +3,10 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        System.out.print("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n0 - Exit\nYour choice: ");
-        //System.out.println("Welcome to the Brain Games!");
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.print("1 - Greet\n2 - Even\n3 - Calc\n0 - Exit\nYour choice: ");
         Scanner mainScanner = new Scanner(System.in);
         int choiseNumber = mainScanner.nextInt();
-        switch (choiseNumber) {
-            case 1:
-                Cli.welcomePlayeer();
-                break;
-            case 2:
-                Even.playEven();
-                break;
-            default:
-                break;
-        }
+        Engine.playGame(choiseNumber);
     }
 }
