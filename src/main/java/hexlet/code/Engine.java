@@ -17,8 +17,8 @@ public class Engine {
         String[] gameIter = new String[2];
         Scanner engineScanner = new Scanner(System.in);
 
-        playeerName = Cli.welcomePlayeer();
         if (choiseNumber > gameExitNum) {
+            playeerName = Cli.welcomePlayeer();
             switch (choiseNumber) {
                 case gameEvenNum:
                     System.out.println(Even.getStartText());

@@ -1,7 +1,9 @@
 clean:
 	./gradlew clean
 
-build: ./gradlew clean build
+build_old: ./gradlew clean build
+
+build: ./gradlew clean install checkstyleMain
 
 install:
 	./gradlew clean install
