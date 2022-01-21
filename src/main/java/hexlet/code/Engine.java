@@ -8,6 +8,7 @@ public class Engine {
         final int gameEvenNum = 2;
         final int gameCalcNum = 3;
         final int gameGCDNum = 4;
+        final int gameProgressionNum = 5;
         final int countRaund = 3;
         String playeerName = "";
         String playeerAnswer = "";
@@ -27,6 +28,9 @@ public class Engine {
                 case gameGCDNum:
                     System.out.println(GCD.getStartText());
                     break;
+                case gameProgressionNum:
+                    System.out.println(Progression.getStartText());
+                    break;
                 default:
                     break;
             }
@@ -41,6 +45,9 @@ public class Engine {
                             break;
                         case gameGCDNum:
                             gameIter = GCD.playGame();
+                            break;
+                        case gameProgressionNum:
+                            gameIter = Progression.playGame();
                             break;
                         default:
                             break;
