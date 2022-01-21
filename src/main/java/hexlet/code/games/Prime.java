@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 
 public class Prime {
     public static String getStartText() {

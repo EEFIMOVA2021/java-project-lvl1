@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 
 public class Calc {
     public static String getStartText() {

@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 
 public class Progression {
     public static String getStartText() {
