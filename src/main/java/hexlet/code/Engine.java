@@ -9,6 +9,7 @@ public class Engine {
         final int gameCalcNum = 3;
         final int gameGCDNum = 4;
         final int gameProgressionNum = 5;
+        final int gamePrimeNum = 6;
         final int countRaund = 3;
         String playeerName = "";
         String playeerAnswer = "";
@@ -31,6 +32,9 @@ public class Engine {
                 case gameProgressionNum:
                     System.out.println(Progression.getStartText());
                     break;
+                case gamePrimeNum:
+                    System.out.println(Prime.getStartText());
+                    break;
                 default:
                     break;
             }
@@ -48,6 +52,9 @@ public class Engine {
                             break;
                         case gameProgressionNum:
                             gameIter = Progression.playGame();
+                            break;
+                        case gamePrimeNum:
+                            gameIter = Prime.playGame();
                             break;
                         default:
                             break;
