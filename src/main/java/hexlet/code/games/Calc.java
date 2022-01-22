@@ -6,9 +6,9 @@ public class Calc {
         return startText;
     }
     public static String[] playGame() {
-        final int createOper1 = 25;
-        final int createOper2 = 50;
-        final int createOper3 = 75;
+        final int createOper1 = 35;
+        final int createOper2 = 70;
+        //final int createOper3 = 75;
         final int countRandom = 100;
         int number1 = 0;
         int number2 = 0;
@@ -26,11 +26,7 @@ public class Calc {
             if (numberForOper < createOper2) {
                 oper = '-';
             } else {
-                if (numberForOper < createOper3) {
-                    oper = '*';
-                } else {
-                    oper = '/';
-                }
+                oper = '*';
             }
         }
         switch (oper) {
