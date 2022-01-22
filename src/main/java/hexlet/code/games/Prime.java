@@ -12,12 +12,15 @@ public class Prime {
         String[] result = new String[2];
 
         number = (int) (Math.random() * countRandom);
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
-                trueAnswer = "no";
+        if (number < 2) {
+            trueAnswer = "no";
+        } else {
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    trueAnswer = "no";
+                }
             }
         }
-
         result[0] = Integer.toString(number);
         result[1] = trueAnswer;
         return result;
