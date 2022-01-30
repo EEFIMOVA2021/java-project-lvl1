@@ -1,53 +1,48 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import hexlet.code.Utils;
+
 public class Calc {
+    public static final String START_TEXT = "What is the result of the expression?";
+    public static final String GAME_NAME = "Calc";
+    private static char[] operationArray = {'+', '-', '*'};
+
     public static String getStartText() {
-        String startText = "What is the result of the expression?";
-        return startText;
+        return START_TEXT;
     }
-    public static String[] playGame() {
-        final int createOper1 = 35;
-        final int createOper2 = 70;
-        //final int createOper3 = 75;
-        final int countRandom = 100;
-        int number1 = 0;
-        int number2 = 0;
-        int numberForOper = 0;
-        int trueAnswer = 0;
-        char oper = '+';
-        String[] result = new String[2];
 
-        number1 = (int) (Math.random() * countRandom);
-        number2 = (int) (Math.random() * countRandom);
-        numberForOper = (int) (Math.random() * countRandom);
-        if (numberForOper < createOper1) {
-            oper = '+';
-        } else {
-            if (numberForOper < createOper2) {
-                oper = '-';
-            } else {
-                oper = '*';
-            }
-        }
-        switch (oper) {
+    public static void playGame() {
+        Engine.playGame(GAME_NAME);
+    }
+
+    public static char getOperation() {
+        return operationArray[Utils.getRandom(Utils.RANGE_LIMIT_0, operationArray.length -  1)];
+    }
+
+    public static int getTrueAnswer(int number1, int number2, char operation) {
+        switch (operation) {
             case '+':
-                trueAnswer = number1 + number2;
-                break;
+                return number1 + number2;
             case '-':
-                trueAnswer = number1 - number2;
-                break;
+                return number1 - number2;
             case '/':
-                trueAnswer = number1 / number2;
-                break;
+                return number1 / number2;
             case '*':
-                trueAnswer = number1 * number2;
-                break;
+                return number1 * number2;
             default:
-                break;
+                return Integer.MIN_VALUE;
         }
+    }
 
-        result[0] = Integer.toString(number1) + ' ' + Character.toString(oper) + ' ' + Integer.toString(number2);
-        result[1] = Integer.toString(trueAnswer);
-        return result;
+    public static String[] getRoundData() {
+        int number1 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+        int number2 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+        char operation = getOperation();
+        int trueAnswer = getTrueAnswer(number1, number2, operation);
+        String[] gameData = new String[2];
+        gameData[0] = Integer.toString(number1) + ' ' + operation + ' ' + number2;
+        gameData[1] = Integer.toString(trueAnswer);
+        return gameData;
     }
 }

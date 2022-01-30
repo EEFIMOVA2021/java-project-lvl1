@@ -1,28 +1,37 @@
 package hexlet.code.games;
 
-public class Prime {
-    public static String getStartText() {
-        String startText = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        return startText;
-    }
-    public static String[] playGame() {
-        final int countRandom = 100;
-        int number = 0;
-        String trueAnswer = "yes";
-        String[] result = new String[2];
+import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-        number = (int) (Math.random() * countRandom);
+public class Prime {
+    public static final String START_TEXT = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static final String ANSWER_YES = "yes";
+    public static final String ANSWER_NO = "no";
+    public static final String GAME_NAME = "Prime";
+
+    public static String getStartText() {
+        return START_TEXT;
+    }
+
+    public static void playGame() {
+        Engine.playGame(GAME_NAME);
+    }
+
+    public static String[] getRoundData() {
+        String[] gameData = new String[2];
+        int number = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+        String trueAnswer = ANSWER_YES;
         if (number < 2) {
-            trueAnswer = "no";
+            trueAnswer = ANSWER_NO;
         } else {
             for (int i = 2; i < number; i++) {
                 if (number % i == 0) {
-                    trueAnswer = "no";
+                    trueAnswer = ANSWER_NO;
                 }
             }
         }
-        result[0] = Integer.toString(number);
-        result[1] = trueAnswer;
-        return result;
+        gameData[0] = Integer.toString(number);
+        gameData[1] = trueAnswer;
+        return gameData;
     }
 }
