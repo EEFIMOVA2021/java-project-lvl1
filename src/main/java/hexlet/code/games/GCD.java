@@ -16,8 +16,8 @@ public class GCD {
     }
 
     public static String[] getRoundData() {
-        int number1 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
-        int number2 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+        int number1 = Utils.getRandom(Utils.RANGE_LIMIT_1, Utils.RANGE_LIMIT_100);
+        int number2 = Utils.getRandom(Utils.RANGE_LIMIT_1, Utils.RANGE_LIMIT_100);
         int numberMin = Math.min(number1, number2);
         int trueAnswer = 0;
         String[] result = new String[2];
