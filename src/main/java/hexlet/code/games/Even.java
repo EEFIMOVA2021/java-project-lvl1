@@ -9,25 +9,28 @@ public class Even {
     public static final String ANSWER_YES = "yes";
     public static final String ANSWER_NO = "no";
 
-    public static String getStartText() {
+    private static String getStartText() {
         return START_TEXT;
     }
 
     public static void playGame() {
-        Engine.playGame(GAME_NAME);
+        Engine.runGame(GAME_NAME, getStartText(), getGameData());
     }
 
-    public static String[] getRoundData() {
-        int number = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
-        String trueAnswer = "";
-        String[] result = new String[2];
-        if (number % 2 == 0) {
-            trueAnswer = ANSWER_YES;
-        } else {
-            trueAnswer = ANSWER_NO;
+    private static String[][] getGameData() {
+        String[][] result = new String[Engine.COUNT_ROUND][2];
+        int number;
+        String trueAnswer;
+        for (int round = 0; round < Engine.COUNT_ROUND; round++) {
+            number = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+            if (number % 2 == 0) {
+                trueAnswer = ANSWER_YES;
+            } else {
+                trueAnswer = ANSWER_NO;
+            }
+            result[round][0] = Integer.toString(number);
+            result[round][1] = trueAnswer;
         }
-        result[0] = Integer.toString(number);
-        result[1] = trueAnswer;
         return result;
     }
 }

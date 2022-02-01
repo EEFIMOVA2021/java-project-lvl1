@@ -8,19 +8,19 @@ public class Calc {
     public static final String GAME_NAME = "Calc";
     private static char[] operationArray = {'+', '-', '*'};
 
-    public static String getStartText() {
+    private static String getStartText() {
         return START_TEXT;
     }
 
     public static void playGame() {
-        Engine.playGame(GAME_NAME);
+        Engine.runGame(GAME_NAME, getStartText(), getGameData());
     }
 
-    public static char getOperation() {
+    private static char getOperation() {
         return operationArray[Utils.getRandom(Utils.RANGE_LIMIT_0, operationArray.length -  1)];
     }
 
-    public static int getTrueAnswer(int number1, int number2, char operation) {
+    private static int getTrueAnswer(int number1, int number2, char operation) {
         switch (operation) {
             case '+':
                 return number1 + number2;
@@ -35,14 +35,20 @@ public class Calc {
         }
     }
 
-    public static String[] getRoundData() {
-        int number1 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
-        int number2 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
-        char operation = getOperation();
-        int trueAnswer = getTrueAnswer(number1, number2, operation);
-        String[] gameData = new String[2];
-        gameData[0] = Integer.toString(number1) + ' ' + operation + ' ' + number2;
-        gameData[1] = Integer.toString(trueAnswer);
+    private static String[][] getGameData() {
+        String[][] gameData = new String[Engine.COUNT_ROUND][2];
+        int number1;
+        int number2;
+        int trueAnswer;
+        char operation;
+        for (int round = 0; round < Engine.COUNT_ROUND; round++) {
+            number1 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+            number2 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+            operation = getOperation();
+            trueAnswer = getTrueAnswer(number1, number2, operation);
+            gameData[round][0] = Integer.toString(number1) + ' ' + operation + ' ' + number2;
+            gameData[round][1] = Integer.toString(trueAnswer);
+        }
         return gameData;
     }
 }

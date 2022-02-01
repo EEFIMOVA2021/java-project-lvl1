@@ -1,10 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class Engine {
@@ -21,7 +16,7 @@ public class Engine {
     public static final String CONGRATULATIONS = "Congratulations, ";
     public static final String TRY_AGAIN = "Let's try again, ";
     public static final String EXCLAMATION_POINT = "!";
-    public static final Scanner ENGINE_SCANNER = new Scanner(System.in);
+    private static Scanner engineScanner;
     private static String gamerName = "";
     private static String gamerAnswer = "";
     private static String gameResult = "";
@@ -50,37 +45,21 @@ public class Engine {
         gameResult = result;
     }
 
-    public static void playGame(String gameName) {
+    public static void runGame(String gameName, String startText, String[][] gameData) {
         setGamerName(Cli.welcome());
-        System.out.println(getStartText(gameName));
-        playGameCycle(gameName);
+        System.out.println(startText);
+        play(gameData);
         printGameResult();
     }
 
-    public static String getStartText(String gameName) {
-        switch (gameName) {
-            case Even.GAME_NAME:
-                return Even.getStartText();
-            case Calc.GAME_NAME:
-                return  Calc.getStartText();
-            case GCD.GAME_NAME:
-                return  GCD.getStartText();
-            case Progression.GAME_NAME:
-                return  Progression.getStartText();
-            case Prime.GAME_NAME:
-                return  Prime.getStartText();
-            default:
-                return "";
-        }
-    }
-
-    public static void playGameCycle(String gameName) {
-        String[] gameQuestionAnswer = new String[2];
+    private static void play(String[][] gameData) {
+        String[] gameQuestionAnswer;
+        engineScanner = new Scanner(System.in);
         setGameResult(RESULT_SUCCESS);
         for (int i = 0; i < COUNT_ROUND; i++) {
-            gameQuestionAnswer = getRoundData(gameName);
+            gameQuestionAnswer = gameData[i];
             System.out.print(QUESTION + gameQuestionAnswer[0] + ANSWER);
-            setGamerAnswer(ENGINE_SCANNER.nextLine());
+            setGamerAnswer(engineScanner.nextLine());
             if (getGamerAnswer().equals(gameQuestionAnswer[1])) {
                 System.out.println(CORRECT);
             } else {
@@ -90,26 +69,10 @@ public class Engine {
                 System.out.println(WRONG_ANSWER_3 + gameQuestionAnswer[1] + WRONG_ANSWER_4);
             }
         }
+        engineScanner.close();
     }
 
-    public static String[] getRoundData(String gameName) {
-        switch (gameName) {
-            case Even.GAME_NAME:
-                return Even.getRoundData();
-            case Calc.GAME_NAME:
-                return  Calc.getRoundData();
-            case GCD.GAME_NAME:
-                return  GCD.getRoundData();
-            case Progression.GAME_NAME:
-                return  Progression.getRoundData();
-            case Prime.GAME_NAME:
-                return  Prime.getRoundData();
-            default:
-                return new String[2];
-        }
-    }
-
-    public static void printGameResult() {
+    private static void printGameResult() {
         if (getGameResult().equals(RESULT_SUCCESS)) {
             System.out.println(CONGRATULATIONS + getGamerName() + EXCLAMATION_POINT);
         } else {

@@ -15,21 +15,22 @@ public class App {
     public static final int PROGRESSION_NUM = 5;
     public static final int PRIME_NUM = 6;
     public static final String MENU_TEXT = "Please enter the game number and press Enter.";
-    public static final String MENU_GAMES_1 = "1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression";
-    public static final String MENU_GAMES_2 = "\n6 - Prime\n0 - Exit\nYour choice: ";
-    public static  final Scanner MAIN_SCANNER = new Scanner(System.in);
+    //я бы рада не разбивать текст меню на несколько констант, но при сборке
+    //получаю ошибку "Line is longer than 120 characters"
+    public static final String MENU_GAMES_1 = GREET_NUM + " - Greet\n" + EVEN_NUM + " - Even\n" + CALC_NUM + " - Calc";
+    public static final String MENU_GAMES_2 = "\n" + GCD_NUM + " - GCD\n" + PROGRESSION_NUM + " - Progression\n";
+    public static final String MENU_GAMES_3 = PRIME_NUM + " - Prime\n0 - Exit\nYour choice: ";
+    private static  Scanner mainScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println(MENU_TEXT);
-        System.out.print(MENU_GAMES_1 + MENU_GAMES_2);
+        System.out.print(MENU_GAMES_1 + MENU_GAMES_2 + MENU_GAMES_3);
         playGame();
-        Cli.CLI_SCANNER.close();
-        Engine.ENGINE_SCANNER.close();
-        MAIN_SCANNER.close();
+        mainScanner.close();
     }
 
     public static void playGame() {
-        switch (MAIN_SCANNER.nextInt()) {
+        switch (mainScanner.nextInt()) {
             case GREET_NUM:
                 Cli.welcome();
                 break;
