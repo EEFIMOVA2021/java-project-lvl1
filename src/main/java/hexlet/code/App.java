@@ -34,22 +34,22 @@ public class App {
     public static void playGame() {
         switch (mainScanner.nextInt()) {
             case GREET_NUM:
-                Cli.welcome();
+                Cli.welcome(new Scanner(System.in));
                 break;
             case EVEN_NUM:
-                Even.playGame();
+                Even.playGame(new Scanner(System.in));
                 break;
             case CALC_NUM:
-                Calc.playGame();
+                Calc.playGame(new Scanner(System.in));
                 break;
             case GCD_NUM:
-                GCD.playGame();
+                GCD.playGame(new Scanner(System.in));
                 break;
             case PROGRESSION_NUM:
-                Progression.playGame();
+                Progression.playGame(new Scanner(System.in));
                 break;
             case PRIME_NUM:
-                Prime.playGame();
+                Prime.playGame(new Scanner(System.in));
                 break;
             default:
                 break;
