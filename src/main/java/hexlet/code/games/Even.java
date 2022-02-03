@@ -14,23 +14,28 @@ public class Even {
     }
 
     public static void playGame() {
-        Engine.runGame(GAME_NAME, getStartText(), getGameData());
+        Engine.runGame(getStartText(), getGameData());
     }
 
     private static String[][] getGameData() {
-        String[][] result = new String[Engine.COUNT_ROUND][2];
-        int number;
-        String trueAnswer;
+        String[][] gameData = new String[Engine.COUNT_ROUND][2];
         for (int round = 0; round < Engine.COUNT_ROUND; round++) {
-            number = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
-            if (number % 2 == 0) {
-                trueAnswer = ANSWER_YES;
-            } else {
-                trueAnswer = ANSWER_NO;
-            }
-            result[round][0] = Integer.toString(number);
-            result[round][1] = trueAnswer;
+            gameData[round] = generateRoundData();
         }
-        return result;
+        return gameData;
+    }
+
+    private static String[] generateRoundData() {
+        String[] roundData = new String[2];
+        int number = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+        String trueAnswer;
+        if (number % 2 == 0) {
+            trueAnswer = ANSWER_YES;
+        } else {
+            trueAnswer = ANSWER_NO;
+        }
+        roundData[0] = Integer.toString(number);
+        roundData[1] = trueAnswer;
+        return roundData;
     }
 }

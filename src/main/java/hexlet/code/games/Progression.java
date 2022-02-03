@@ -13,7 +13,7 @@ public class Progression {
     }
 
     public static void playGame() {
-        Engine.runGame(GAME_NAME, getStartText(), getGameData());
+        Engine.runGame(getStartText(), getGameData());
     }
 
     private static String getStringProgression(int[] array, int skipNumber) {
@@ -32,18 +32,24 @@ public class Progression {
     }
 
     private static String[][] getGameData() {
+        String[][] gameData = new String[Engine.COUNT_ROUND][2];
+        for (int round = 0; round < Engine.COUNT_ROUND; round++) {
+            gameData[round] = generateRoundData();
+        }
+        return gameData;
+    }
+
+    private static String[] generateRoundData() {
+        String[] roundData = new String[2];
         int differenceValue = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_10);
         int skipNumber = Utils.getRandom(Utils.RANGE_LIMIT_0, ARRAY_LENGTH - 1);
         int[] array = new int[ARRAY_LENGTH];
-        String[][] result = new String[Engine.COUNT_ROUND][2];
-        for (int round = 0; round < Engine.COUNT_ROUND; round++) {
-            array[0] = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
-            for (int i = 1; i < ARRAY_LENGTH; i++) {
-                array[i] = array[i - 1] + differenceValue;
-            }
-            result[round][0] = getStringProgression(array, skipNumber);
-            result[round][1] = Integer.toString(array[skipNumber]);
+        array[0] = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+        for (int i = 1; i < ARRAY_LENGTH; i++) {
+            array[i] = array[i - 1] + differenceValue;
         }
-        return result;
+        roundData[0] = getStringProgression(array, skipNumber);
+        roundData[1] = Integer.toString(array[skipNumber]);
+        return roundData;
     }
 }

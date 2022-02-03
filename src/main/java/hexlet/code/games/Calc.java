@@ -8,12 +8,8 @@ public class Calc {
     public static final String GAME_NAME = "Calc";
     private static char[] operationArray = {'+', '-', '*'};
 
-    private static String getStartText() {
-        return START_TEXT;
-    }
-
     public static void playGame() {
-        Engine.runGame(GAME_NAME, getStartText(), getGameData());
+        Engine.runGame(START_TEXT, getGameData());
     }
 
     private static char getOperation() {
@@ -37,18 +33,20 @@ public class Calc {
 
     private static String[][] getGameData() {
         String[][] gameData = new String[Engine.COUNT_ROUND][2];
-        int number1;
-        int number2;
-        int trueAnswer;
-        char operation;
         for (int round = 0; round < Engine.COUNT_ROUND; round++) {
-            number1 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
-            number2 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
-            operation = getOperation();
-            trueAnswer = getTrueAnswer(number1, number2, operation);
-            gameData[round][0] = Integer.toString(number1) + ' ' + operation + ' ' + number2;
-            gameData[round][1] = Integer.toString(trueAnswer);
+            gameData[round] = generateRoundData();
         }
         return gameData;
+    }
+
+    private static String[] generateRoundData() {
+        String[] roundData = new String[2];
+        int number1 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+        int number2 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
+        char operation = getOperation();
+        int trueAnswer = getTrueAnswer(number1, number2, operation);
+        roundData[0] = Integer.toString(number1) + ' ' + operation + ' ' + number2;
+        roundData[1] = Integer.toString(trueAnswer);
+        return roundData;
     }
 }
