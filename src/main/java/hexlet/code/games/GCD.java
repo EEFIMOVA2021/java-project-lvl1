@@ -5,14 +5,9 @@ import hexlet.code.Utils;
 
 public class GCD {
     public static final String START_TEXT = "Find the greatest common divisor of given numbers.";
-    public static final String GAME_NAME = "GCD";
-
-    private static String getStartText() {
-        return START_TEXT;
-    }
 
     public static void playGame() {
-        Engine.runGame(getStartText(), getGameData());
+        Engine.runGame(START_TEXT, getGameData());
     }
 
     private static String[][] getGameData() {

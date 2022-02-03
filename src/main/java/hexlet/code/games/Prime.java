@@ -7,14 +7,9 @@ public class Prime {
     public static final String START_TEXT = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     public static final String ANSWER_YES = "yes";
     public static final String ANSWER_NO = "no";
-    public static final String GAME_NAME = "Prime";
-
-    private static String getStartText() {
-        return START_TEXT;
-    }
 
     public static void playGame() {
-        Engine.runGame(getStartText(), getGameData());
+        Engine.runGame(START_TEXT, getGameData());
     }
 
     private static String[][] getGameData() {

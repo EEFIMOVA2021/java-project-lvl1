@@ -5,16 +5,11 @@ import hexlet.code.Utils;
 
 public class Even {
     public static final String START_TEXT = "Answer 'yes' if number even otherwise answer 'no'.";
-    public static final String GAME_NAME = "Even";
     public static final String ANSWER_YES = "yes";
     public static final String ANSWER_NO = "no";
 
-    private static String getStartText() {
-        return START_TEXT;
-    }
-
     public static void playGame() {
-        Engine.runGame(getStartText(), getGameData());
+        Engine.runGame(START_TEXT, getGameData());
     }
 
     private static String[][] getGameData() {

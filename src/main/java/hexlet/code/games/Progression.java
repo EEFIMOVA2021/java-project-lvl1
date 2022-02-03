@@ -5,15 +5,10 @@ import hexlet.code.Utils;
 
 public class Progression {
     public static final String START_TEXT = "What number is missing in this progression?";
-    public static final String GAME_NAME = "Progression";
     public static final int ARRAY_LENGTH = 10;
 
-    private static String getStartText() {
-        return START_TEXT;
-    }
-
     public static void playGame() {
-        Engine.runGame(getStartText(), getGameData());
+        Engine.runGame(START_TEXT, getGameData());
     }
 
     private static String getStringProgression(int[] array, int skipNumber) {
