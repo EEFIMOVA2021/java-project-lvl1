@@ -2,15 +2,14 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-import java.util.Scanner;
 
 public class Calc {
     public static final String START_TEXT = "What is the result of the expression?";
     public static final String GAME_NAME = "Calc";
     private static char[] operationArray = {'+', '-', '*'};
 
-    public static void playGame(Scanner engineScanner) {
-        Engine.runGame(START_TEXT, getGameData(), engineScanner);
+    public static void playGame() {
+        Engine.runGame(START_TEXT, getGameData());
     }
 
     private static char getOperation() {

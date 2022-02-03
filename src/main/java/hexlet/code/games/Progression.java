@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-import java.util.Scanner;
 
 public class Progression {
     public static final String START_TEXT = "What number is missing in this progression?";
@@ -13,8 +12,8 @@ public class Progression {
         return START_TEXT;
     }
 
-    public static void playGame(Scanner engineScanner) {
-        Engine.runGame(getStartText(), getGameData(), engineScanner);
+    public static void playGame() {
+        Engine.runGame(getStartText(), getGameData());
     }
 
     private static String getStringProgression(int[] array, int skipNumber) {

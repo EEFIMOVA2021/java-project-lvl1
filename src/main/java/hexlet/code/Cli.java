@@ -8,7 +8,8 @@ public class Cli {
     public static final String HELLO_TEXT_1 = "Hello, ";
     public static final String HELLO_TEXT_2 = "!";
 
-    public static String welcome(Scanner cliScanner) {
+    public static String welcome() {
+        Scanner cliScanner = new Scanner(System.in);
         String gamerName = "";
         System.out.println(WELCOME_TEXT);
         System.out.print(WELCOME_QUESTION);

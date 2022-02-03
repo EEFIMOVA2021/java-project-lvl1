@@ -13,7 +13,8 @@ public class Engine {
     public static final String TRY_AGAIN = "Let's try again, ";
     public static final String EXCLAMATION_POINT = "!";
 
-    public static void runGame(String startText, String[][] gameData, Scanner engineScanner) {
+    public static void runGame(String startText, String[][] gameData) {
+        Scanner engineScanner = new Scanner(System.in);
         String gamerName = welcome(engineScanner);
         System.out.println(startText);
         String gameResult = play(gameData, engineScanner);

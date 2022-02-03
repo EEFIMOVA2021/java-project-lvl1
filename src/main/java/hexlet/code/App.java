@@ -22,34 +22,34 @@ public class App {
             + PROGRESSION_NUM + " - Progression\n"
             + PRIME_NUM + " - Prime\n"
             + "0 - Exit\nYour choice: ";
-    private static Scanner mainScanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Scanner mainScanner = new Scanner(System.in);
         System.out.println(MENU_TEXT);
         System.out.print(MENU_GAMES);
-        playGame();
+        playGame(mainScanner);
         mainScanner.close();
     }
 
-    public static void playGame() {
+    public static void playGame(Scanner mainScanner) {
         switch (mainScanner.nextInt()) {
             case GREET_NUM:
-                Cli.welcome(new Scanner(System.in));
+                Cli.welcome();
                 break;
             case EVEN_NUM:
-                Even.playGame(new Scanner(System.in));
+                Even.playGame();
                 break;
             case CALC_NUM:
-                Calc.playGame(new Scanner(System.in));
+                Calc.playGame();
                 break;
             case GCD_NUM:
-                GCD.playGame(new Scanner(System.in));
+                GCD.playGame();
                 break;
             case PROGRESSION_NUM:
-                Progression.playGame(new Scanner(System.in));
+                Progression.playGame();
                 break;
             case PRIME_NUM:
-                Prime.playGame(new Scanner(System.in));
+                Prime.playGame();
                 break;
             default:
                 break;
