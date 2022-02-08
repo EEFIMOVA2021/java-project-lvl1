@@ -22,15 +22,19 @@ public class GCD {
         String[] roundData = new String[2];
         int number1 = Utils.getRandom(Utils.RANGE_LIMIT_1, Utils.RANGE_LIMIT_100);
         int number2 = Utils.getRandom(Utils.RANGE_LIMIT_1, Utils.RANGE_LIMIT_100);
+        roundData[0] = Integer.toString(number1) + ' ' + number2;
+        roundData[1] = Integer.toString(calcGCD(number1, number2));
+        return roundData;
+    }
+
+    private static int calcGCD(int number1, int number2) {
+        int gcd = 0;
         int numberMin = Math.min(number1, number2);
-        int trueAnswer = 0;
         for (int i = 1; i <= numberMin; i++) {
             if (number1 % i == 0 && number2 % i == 0) {
-                trueAnswer = i;
+                gcd = i;
             }
         }
-        roundData[0] = Integer.toString(number1) + ' ' + number2;
-        roundData[1] = Integer.toString(trueAnswer);
-        return roundData;
+        return gcd;
     }
 }

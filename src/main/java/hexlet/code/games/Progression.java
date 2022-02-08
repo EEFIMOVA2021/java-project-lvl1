@@ -11,7 +11,7 @@ public class Progression {
         Engine.runGame(START_TEXT, getGameData());
     }
 
-    private static String getStringProgression(int[] array, int skipNumber) {
+    private static String getQuestion(int[] array, int skipNumber) {
         StringBuilder progression = new StringBuilder();
         for (int i = 0; i < ARRAY_LENGTH; i++) {
             if (i > 0) {
@@ -37,14 +37,14 @@ public class Progression {
     private static String[] generateRoundData() {
         String[] roundData = new String[2];
         int differenceValue = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_10);
-        int skipNumber = Utils.getRandom(Utils.RANGE_LIMIT_0, ARRAY_LENGTH - 1);
+        int skipArrayIndex = Utils.getRandom(Utils.RANGE_LIMIT_0, ARRAY_LENGTH - 1);
         int[] array = new int[ARRAY_LENGTH];
         array[0] = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
         for (int i = 1; i < ARRAY_LENGTH; i++) {
             array[i] = array[i - 1] + differenceValue;
         }
-        roundData[0] = getStringProgression(array, skipNumber);
-        roundData[1] = Integer.toString(array[skipNumber]);
+        roundData[0] = getQuestion(array, skipArrayIndex);
+        roundData[1] = Integer.toString(array[skipArrayIndex]);
         return roundData;
     }
 }

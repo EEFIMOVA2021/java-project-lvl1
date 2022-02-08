@@ -24,7 +24,7 @@ public class Even {
         String[] roundData = new String[2];
         int number = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
         String trueAnswer;
-        if (number % 2 == 0) {
+        if (isEven(number)) {
             trueAnswer = ANSWER_YES;
         } else {
             trueAnswer = ANSWER_NO;
@@ -32,5 +32,12 @@ public class Even {
         roundData[0] = Integer.toString(number);
         roundData[1] = trueAnswer;
         return roundData;
+    }
+
+    private static boolean isEven(int number) {
+        if (number % 2 == 0) {
+            return true;
+        }
+        return false;
     }
 }

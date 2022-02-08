@@ -23,18 +23,24 @@ public class Prime {
     private static String[] generateRoundData() {
         String[] roundData = new String[2];
         int number = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
-        String trueAnswer = ANSWER_YES;
-        if (number < 2) {
-            trueAnswer = ANSWER_NO;
+        roundData[0] = Integer.toString(number);
+        if (isPrime(number)) {
+            roundData[1] = ANSWER_YES;
         } else {
-            for (int i = 2; i < number; i++) {
-                if (number % i == 0) {
-                    trueAnswer = ANSWER_NO;
-                }
+            roundData[1] = ANSWER_NO;
+        }
+        return roundData;
+    }
+
+    private static boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return false;
             }
         }
-        roundData[0] = Integer.toString(number);
-        roundData[1] = trueAnswer;
-        return roundData;
+        return true;
     }
 }

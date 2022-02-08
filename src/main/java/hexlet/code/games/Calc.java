@@ -15,7 +15,7 @@ public class Calc {
         return operationArray[Utils.getRandom(Utils.RANGE_LIMIT_0, operationArray.length -  1)];
     }
 
-    private static int getTrueAnswer(int number1, int number2, char operation) {
+    private static int calculate(int number1, int number2, char operation) {
         switch (operation) {
             case '+':
                 return number1 + number2;
@@ -43,7 +43,7 @@ public class Calc {
         int number1 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
         int number2 = Utils.getRandom(Utils.RANGE_LIMIT_0, Utils.RANGE_LIMIT_100);
         char operation = getOperation();
-        int trueAnswer = getTrueAnswer(number1, number2, operation);
+        int trueAnswer = calculate(number1, number2, operation);
         roundData[0] = Integer.toString(number1) + ' ' + operation + ' ' + number2;
         roundData[1] = Integer.toString(trueAnswer);
         return roundData;
